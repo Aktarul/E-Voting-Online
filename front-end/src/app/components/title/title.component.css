@@ -1,0 +1,26 @@
+.title {
+  background-color: #00b300;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.margin {
+  margin-left: 5%;
+}
+
+
+.logo {
+  max-height: 60px;
+  max-width: 60px;
+  float: left;
+}
+
+.title-text {
+  color: white;
+  padding: 0px;
+  margin: 0px;
+}
+
+.RU {
+  color: white;
+}

@@ -1,0 +1,27 @@
+.footer {
+  max-width: 80%;
+  margin: auto;
+}
+
+.border {
+  border-top: 1px solid black;
+}
+
+.copyRight {
+  margin-left: 40%;
+}
+
+@media screen and (max-width: 700px) {
+  .copyRight {
+    margin-left: 20%;
+  }
+  .footer {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  .copyRight {
+    margin-left: 0%;
+  }
+}
