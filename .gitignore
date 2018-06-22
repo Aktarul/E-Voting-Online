@@ -21,3 +21,10 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
+
+
+# Dependencies
+node_modules
+
+# .idea
+.idea
