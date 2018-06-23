@@ -3,6 +3,8 @@ import {Router} from "@angular/router";
 import {Candidate} from "../../models/candidate";
 import {AuthService} from "../../services/auth.service";
 import {CandidateService} from "../../services/candidate.service";
+import {Voter} from "../../models/voter";
+import {VoterService} from "../../services/voter.service";
 
 @Component({
   selector: 'app-teasurer',
@@ -16,10 +18,15 @@ export class TeasurerComponent implements OnInit {
   searchKey: String;
   candidates: Array<Candidate> = new Array<Candidate>();
 
+  voter = new Voter();
+
+  id: any = null;
+
   constructor(
     public authService: AuthService,
     private candidateService: CandidateService,
-    private router: Router
+    private router: Router,
+    private voterService: VoterService
   ) { }
 
   ngOnInit() {
@@ -36,6 +43,38 @@ export class TeasurerComponent implements OnInit {
         this.candidates = res.data;
         console.log(this.candidates);
       });
+
+    // changing status starts
+    if(true){
+      this.id = localStorage.getItem('loginId');
+      this.voterService.getSingleVoter(this.id)
+        .subscribe(res=>{
+          this.voter = res.data;
+          console.log(this.voter);
+        });
+    }
+
+
+    if(localStorage.getItem('member_vote') == "true" &&
+      localStorage.getItem('president_vote') == "true" &&
+      localStorage.getItem('vice_president_vote') == "true" &&
+      localStorage.getItem('general_secretary_vote') == "true" &&
+      localStorage.getItem('joint_secretary_vote') == "true" &&
+      localStorage.getItem('treasurer_vote') == "true" ) {
+
+      console.log('hello true');
+      localStorage.setItem('status','true');
+
+      this.voter.status = true;
+
+      this.voterService.updateStatus(this.voter)
+        .subscribe(res=>{
+          console.log(res)
+
+          // this.router.navigate([`photo-upload-candidate/${res.data._id}`]);
+        })
+    }
+    // changing status ends
 
   }
 

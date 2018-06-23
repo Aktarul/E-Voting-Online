@@ -15,13 +15,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    localStorage.setItem('president_vote','false');
-    localStorage.setItem('vice_president_vote','false');
-    localStorage.setItem('general_secretary_vote','false');
-    localStorage.setItem('joint_secretary_vote','false');
-    localStorage.setItem('member_vote','false');
-    localStorage.setItem('treasurer_vote','false');
-
   }
 
   logOut() {

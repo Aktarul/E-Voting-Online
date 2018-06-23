@@ -29,6 +29,11 @@ export class VoterService {
 
   }
 
+  getSingleVoter(id){
+    return this.http.get(`${environment.baseUrl}/voter/${id}`, this.options)
+      .map(res=>res.json());
+  }
+
   registerVoter(voter){
       return this.http.post(`${environment.baseUrl}/voter`,voter,this.options)
         .map( res=>res.json());
@@ -36,6 +41,14 @@ export class VoterService {
 
   deleteVoter(id){
     return this.http.delete(`${environment.baseUrl}/voter/${id}`, this.options)
+      .map( res=> res.json());
+  }
+
+  updateStatus(voter) {
+
+    console.log('voter id: ');
+    let id =  localStorage.getItem('loginId');
+    return this.http.patch(`http://localhost:8080/api/voter/${id}`, voter, this.options)
       .map( res=> res.json());
   }
 

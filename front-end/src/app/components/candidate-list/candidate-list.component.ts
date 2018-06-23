@@ -55,8 +55,6 @@ export class CandidateListComponent implements OnInit {
       this.candidates.splice(this.candidates.indexOf(candidate), 1);
       this.candidateService.deleteCandidate(candidate._id)
         .subscribe(res=>{
-
-
         })
     } else {
       // this.toasterService.Warning("You have cancelled deletion!!");

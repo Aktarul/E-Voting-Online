@@ -61,8 +61,6 @@ var updateVoter = (req, res, next)=>{
         password = req.body.password;
 
 
-
-
     Voter.findById(req.params.id, (err, voter) =>{
         if(err){
             return res.status(404).json({
@@ -73,9 +71,10 @@ var updateVoter = (req, res, next)=>{
         else
         {
             voter.firstName = firstName || voter.firstName;
-            voter.middleName = firstName || voter.middleName;
-            voter.lastName = firstName || voter.lastName;
-            voter.dept = firstName || voter.dept;
+            voter.middleName = middleName || voter.middleName;
+            voter.lastName = lastName || voter.lastName;
+            voter.position = position || voter.position;
+            voter.dept = dept || voter.dept;
             voter.status = status || voter.status;
             voter.email = email || voter.email;
             voter.username = username || voter.username;

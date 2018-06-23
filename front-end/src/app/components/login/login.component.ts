@@ -50,6 +50,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('isAdmin',res.data.isAdmin);
         localStorage.setItem('loginId',res.data._id);
         localStorage.setItem('status',res.data.status);
+        localStorage.setItem('president_vote','false');
+        localStorage.setItem('vice_president_vote','false');
+        localStorage.setItem('general_secretary_vote','false');
+        localStorage.setItem('joint_secretary_vote','false');
+        localStorage.setItem('member_vote','false');
+        localStorage.setItem('treasurer_vote','false');
 
         this.authService.storeUserDatta(res.token, res.data);
         // this._flashMessagesService.show('You are now Logged In!', { cssClass: 'alert-success' } );

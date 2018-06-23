@@ -36,6 +36,9 @@ export class VoterListComponent implements OnInit {
   deleteVoter(voter){
     this.voterService.deleteVoter(voter._id).subscribe(res=>{
       console.log(res);
+      if(res.success){
+        this.voters.splice(this.voters.indexOf(voter), 1);
+      }
     })
   }
 

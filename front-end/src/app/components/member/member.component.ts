@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Candidate} from "../../models/candidate";
 import {AuthService} from "../../services/auth.service";
 import {CandidateService} from "../../services/candidate.service";
+import {VoterService} from "../../services/voter.service";
+import {Voter} from "../../models/voter";
 
 @Component({
   selector: 'app-member',
@@ -16,10 +18,15 @@ export class MemberComponent implements OnInit {
   searchKey: String;
   candidates: Array<Candidate> = new Array<Candidate>();
 
+  voter = new Voter();
+
+  id: any = null;
+
   constructor(
     public authService: AuthService,
     private candidateService: CandidateService,
-    private router: Router
+    private router: Router,
+    private voterService: VoterService
   ) { }
 
   ngOnInit() {
@@ -30,12 +37,23 @@ export class MemberComponent implements OnInit {
     this.vote_status = (vote_temp == "true");
 
     this.searchKey = "Member";
-    console.log('At search = '+ this.searchKey);
+    // console.log('At search = '+ this.searchKey);
     this.candidateService.getSearchCandidate(this.searchKey)
       .subscribe(res => {
         this.candidates = res.data;
-        console.log(this.candidates);
+        // console.log(this.candidates);
       });
+
+
+    // changing status starts
+    if(true){
+      this.id = localStorage.getItem('loginId');
+      this.voterService.getSingleVoter(this.id)
+        .subscribe(res=>{
+          this.voter = res.data;
+          console.log(this.voter);
+        });
+    }
 
 
     if(localStorage.getItem('member_vote') == "true" &&
@@ -47,7 +65,17 @@ export class MemberComponent implements OnInit {
 
       console.log('hello true');
       localStorage.setItem('status','true');
+
+      this.voter.status = true;
+
+      this.voterService.updateStatus(this.voter)
+        .subscribe(res=>{
+          console.log(res)
+
+          // this.router.navigate([`photo-upload-candidate/${res.data._id}`]);
+        })
     }
+    // changing status ends
 
   }
 
@@ -72,13 +100,15 @@ export class MemberComponent implements OnInit {
       // console.log(candidate);
       this.candidateService.updateVote(candidate._id)
         .subscribe(res=>{
-          console.log(res.data);
+          // console.log(res.data);
           localStorage.setItem('member_vote','true');
           this.ngOnInit();
 
-          // this.router.navigate(['vice-president']);
+          this.router.navigate(['home']);
         })
     }
+
   }
+
 
 }

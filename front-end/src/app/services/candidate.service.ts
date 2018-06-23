@@ -47,7 +47,7 @@ export class CandidateService {
 
   getSearchCandidate(id){
 
-    console.log('at get Search service:' + id );
+    // console.log('at get Search service:' + id );
     let headers = new Headers();
     headers.append('Content-type','application/json');
 
