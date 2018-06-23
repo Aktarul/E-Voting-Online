@@ -39,13 +39,13 @@
       <div class="panel-heading">
         <div class="panel-title">
           <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default">All</button>
-            <button type="button" class="btn btn-default">President</button>
-            <button type="button" class="btn btn-default">Vice President</button>
-            <button type="button" class="btn btn-default"><span style="padding: 9px">Members</span></button>
-            <button type="button" class="btn btn-default">General Secretary</button>
-            <button type="button" class="btn btn-default">Joint Secretary</button>
-            <button type="button" class="btn btn-default">Treasurer</button>
+            <button (click)="ngOnInit()" type="button" class="btn btn-default">All</button>
+            <button (click)="president()" type="button" class="btn btn-default">President</button>
+            <button (click)="vice_president()" type="button" class="btn btn-default">Vice President</button>
+            <button (click)="members()" type="button" class="btn btn-default"><span style="padding: 9px">Members</span></button>
+            <button (click)="general_secretary()" type="button" class="btn btn-default">General Secretary</button>
+            <button (click)="joint_secretary()" type="button" class="btn btn-default">Joint Secretary</button>
+            <button (click)="treasurer()" type="button" class="btn btn-default">Treasurer</button>
           </div>
 
         </div>
@@ -76,8 +76,6 @@
 
           <form class="navbar-form navbar-right" role="search">
             <div class="form-group">
-
-
               <input style="margin-right: 5px" type="text" class="form-control" placeholder="Search Here">
             </div>
           </form>
@@ -88,21 +86,23 @@
             <thead>
             <tr style="background-color: #f2f2f8">
               <th>Position</th>
-              <th>Firstname</th>
-              <th>Lastname</th>
+              <th>Name</th>
               <th>Dept</th>
+              <th>Position</th>
+              <th>Party</th>
               <th>Photo</th>
               <th>No. of Votes</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>1</td>
-              <td>Anna</td>
-              <td>Pitt</td>
-              <td>35</td>
-              <td>New York</td>
-              <td>USA</td>
+            <tr *ngFor="let candidate of candidates; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{candidate.firstName}}{{candidate.middleName}}{{candidate.lastName}}</td>
+              <td>{{candidate.dept}}</td>
+              <td>{{candidate.position}}</td>
+              <td>party</td>
+              <td><img src="http://localhost:8080/{{candidate.picture}}" height="40px" width="60px" alt="no photo"></td>
+              <td style="text-align: center; font-weight: bold">{{candidate.total_vote}}</td>
             </tr>
             </tbody>
           </table>
