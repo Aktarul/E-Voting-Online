@@ -27,7 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 let admin = require('./routes/admin'),
     voter = require('./routes/voter'),
-    candidate = require('./routes/candidate');
+    candidate = require('./routes/candidate'),
+    authRoute = require('./routes/auth');
 
 
 app.use('/api/test', (req, res, next) => {
@@ -35,6 +36,7 @@ app.use('/api/test', (req, res, next) => {
 });
 
 
+app.use('/auth', authRoute);
 app.use('/api/admin', admin);
 app.use('/api/voter', voter);
 app.use('/api/candidate',candidate);
