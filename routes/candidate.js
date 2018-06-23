@@ -9,5 +9,6 @@ router.get('/', candidateController.getAllCandidate);
 router.get('/:id', candidateController.getSingleCandidate);
 router.delete('/:id', candidateController.deleteCandidate);
 router.patch('/:id', candidateController.updateCandidate);
+router.post('/VoteUpdate/:id', candidateController.updateVote);
 
 module.exports = router;

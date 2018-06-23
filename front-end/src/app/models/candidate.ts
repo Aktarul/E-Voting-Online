@@ -10,5 +10,6 @@ export class Candidate{
   email: String;
   username: String;
   password: String;
+  total_vote: Number;
 
 }

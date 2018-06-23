@@ -55,4 +55,10 @@ export class CandidateService {
       .map(res => res.json())
   }
 
+  updateVote(id){
+    console.log(id);
+    return this.http.post(`${environment.baseUrl}/candidate/VoteUpdate/${id}`,this.options)
+      .map( res=>res.json());
+  }
+
 }

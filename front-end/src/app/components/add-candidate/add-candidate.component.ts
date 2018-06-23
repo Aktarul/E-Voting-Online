@@ -28,6 +28,7 @@ export class AddCandidateComponent implements OnInit {
   email: String;
   username: String;
   password: String;
+  total_vote = 0;
 
   ngOnInit() {
 
@@ -43,12 +44,11 @@ export class AddCandidateComponent implements OnInit {
     this.candidate.email = this.email;
     this.candidate.username = this.username;
     this.candidate.password = this.password;
+    this.candidate.total_vote = this.total_vote;
 
     this.candidateService.registerCandidate(this.candidate)
       .subscribe(res=>{
             this.router.navigate([`photo-upload-candidate/${res.data._id}`]);
       })
-
   }
-
 }

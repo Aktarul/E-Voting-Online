@@ -20,7 +20,8 @@ var createCadidate = (req, res, next) => {
         dept = req.body.dept,
         email = req.body.email,
         username = req.body.username,
-        password = req.body.password;
+        password = req.body.password,
+        total_vote = req.body.total_vote;
 
     var newCandidate = new Cadidate({
         firstName: firstName,
@@ -30,8 +31,9 @@ var createCadidate = (req, res, next) => {
         dept: dept,
         email: email,
         username: username,
-        password: password
-    })
+        password: password,
+        total_vote: total_vote
+});
 
 
 
@@ -131,7 +133,7 @@ var updateCandidate = (req, res, next) =>{
         }
     });
 
-}
+};
 
 var updateCandidate2 = (req, res, next) =>{
 
@@ -150,7 +152,7 @@ var updateCandidate2 = (req, res, next) =>{
                 email = req.body.email,
                 username = req.body.username,
                 password = req.body.password;
-                picture = req.file.filename ;
+                picture = req.file.picture ;
 
 
 
@@ -254,6 +256,39 @@ var deleteCandidate = (req, res, next) =>{
 }
 
 
+var updateVote = (req, res, next) =>{
+
+    console.log('in vote update');
+
+    Cadidate.findById(req.params.id, (err, candidate) => {
+        if(err){
+            return res.status(404).json({
+                message: err,
+                success: false
+            });
+        }
+        else {
+            candidate.total_vote = candidate.total_vote + 1;
+
+            candidate.save((err, candidate) => {
+                if(err){
+                    return res.status(404).json({
+                        message: err,
+                        success: false
+                    });
+                }
+                else {
+                    return res.status(200).json({
+                        success: true,
+                        data: candidate
+                    });
+                }
+            });
+        }
+    });
+
+};
+
 
 module.exports = {
     createCadidate,
@@ -262,5 +297,6 @@ module.exports = {
     deleteCandidate,
     updateCandidate2,
     getSingleCandidate,
-    getSearchCandidate
-}
+    getSearchCandidate,
+    updateVote
+};
