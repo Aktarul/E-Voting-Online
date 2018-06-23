@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <app-inner-navbar></app-inner-navbar>
+  <div style="margin-left: -1px" id="loginbox" style="margin-top:10px;" class="mainbox col-md-12 col-sm-8">
+    <div class="panel panel-info" >
+      <div class="panel-heading">
+        <div class="panel-title">
+          <div class="btn-group" role="group" aria-label="...">
+            <button (click)="ngOnInit()" type="button" class="btn btn-default">All</button>
+            <button (click)="president()" type="button" class="btn btn-default">President</button>
+            <button (click)="vice_president()" type="button" class="btn btn-default">Vice President</button>
+            <button (click)="members()" type="button" class="btn btn-default"><span style="padding: 9px">Members</span></button>
+            <button (click)="general_secretary()" type="button" class="btn btn-default">General Secretary</button>
+            <button (click)="joint_secretary()" type="button" class="btn btn-default">Joint Secretary</button>
+            <button (click)="treasurer()" type="button" class="btn btn-default">Treasurer</button>
+          </div>
+
+        </div>
+        <button (click)="registerCandidate()" style="margin-top: 5px" class="btn btn-default"><i class="fas fa-plus"></i> Add Candidates</button>
+      </div>
+
+      <div class="panel-body" >
+
+        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+
+        <nav class="navbar navbar-default">
+
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Items Per Page</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Default<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">10</a></li>
+                    <li><a href="#">15</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </form>
+
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+
+
+              <input style="margin-right: 5px" type="text" class="form-control" placeholder="Search Here">
+            </div>
+          </form>
+        </nav>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr style="background-color: #f2f2f8">
+              <th>Position</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Dept</th>
+              <th>Photo</th>
+              <th style="text-align: center">Actions</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let candidate of candidates">
+            <tr>
+              <td>{{candidate.position}}</td>
+              <td>{{candidate.firstName}}</td>
+              <td>{{candidate.lastName}}</td>
+              <td>{{candidate.dept}}</td>
+              <td><img src="http://localhost:8080/{{candidate.picture}}" height="40px" width="60px" alt="no photo"></td>
+              <td style="text-align: center">
+                <button *ngIf="authService.isAdmin()" (click)="updateCandidate(candidate)" class="btn btn-primary"><i class="far fa-edit"></i> Edit</button>
+                <button (click)="viewCandidate(candidate)"  class="btn btn-info"><i class="fas fa-eye"></i> View</button>
+                <button  *ngIf="authService.isAdmin()" (click)="deleteCandidate(candidate)" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

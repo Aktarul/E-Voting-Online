@@ -50,7 +50,33 @@ var createCadidate = (req, res, next) => {
             })
         }
     })
-}
+};
+
+var getSearchCandidate = (req, res, next) => {
+
+    let topSearch = req.params.searchKey;
+
+    if(topSearch){
+        Cadidate.find({position: new RegExp(topSearch,'i')}, (err, product) => {
+            if(err) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'can not find this category products'
+                });
+            }else {
+                return res.status(201).json({
+                    success: true,
+                    data: product
+                });
+            }
+        })
+    } else {
+        return res.status(200).json({
+            success: false
+        });
+    }
+};
+
 
 var updateCandidate = (req, res, next) =>{
 
@@ -235,5 +261,6 @@ module.exports = {
     getAllCandidate,
     deleteCandidate,
     updateCandidate2,
-    getSingleCandidate
+    getSingleCandidate,
+    getSearchCandidate
 }

@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="row grid">
+
+
+    <div class="panel panel-info">
+      <div class="panel-heading"><h1 style="text-align: center; font-family:'Fira Code Light'">Candidate Details</h1></div>
+      <div class="panel-body">
+
+
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-md-offset-3 col-lg-offset-3 col-xl-offset-3 card grid-item">
+          <div class="thumbnail">
+            <img src="http://localhost:8080/{{candidate.picture}}" class="">
+            <div class="caption">
+              <p class="card-title" id="thumbnail-label">Candidate for <b>: <span style="color: #ff3528"> {{candidate.position}}</span></b></p>
+
+              <table>
+                <tr>
+                  <td><b>Name  </b></td>
+                  <td><b>:</b> {{candidate.firstName}} {{candidate.middleName}} {{candidate.lastName}}</td>
+                </tr>
+                <tr>
+                  <td><b>Department  </b></td>
+                  <td><b>:</b> {{candidate.dept}}</td>
+                </tr>
+                <tr>
+                  <td><b>Party  </b></td>
+                  <td><b>:</b></td>
+                </tr>
+                <tr>
+                  <td><b>Status  </b></td>
+                  <td><b>:</b></td>
+                </tr>
+              </table>
+            </div>
+            <div class="caption card-footer">
+              <ul class="list-inline">
+
+                <li><button class="btn btn-success pull-left"><i class="fas fa-thumbs-up"></i>Vote</button></li>
+                <li><button class="btn btn-success pull-right"><i class="fas fa-thumbs-up"></i>Vote</button></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+  </div><!-- row -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div> <!-- container grid -->
+
+
+

@@ -47,8 +47,8 @@ export class LoginComponent implements OnInit {
 
       if (res.success) {
         // console.log(res.data.isAdmin);
-        // localStorage.setItem('isAdmin',res.data.isAdmin);
-        // localStorage.setItem('loginId',res.data._id);
+        localStorage.setItem('isAdmin',res.data.isAdmin);
+        localStorage.setItem('loginId',res.data._id);
 
         this.authService.storeUserDatta(res.token, res.data);
         // this._flashMessagesService.show('You are now Logged In!', { cssClass: 'alert-success' } );

@@ -2,6 +2,7 @@ var express = require('express'),
     router = express.Router(),
     candidateController = require('../controller/cadidate');
 
+router.get('/search/:searchKey', candidateController.getSearchCandidate);
 router.post('/', candidateController.createCadidate);
 router.post('/:id', candidateController.updateCandidate2);
 router.get('/', candidateController.getAllCandidate);
