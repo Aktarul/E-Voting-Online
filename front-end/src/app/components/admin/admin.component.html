@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+
+
+<div  class="bg">
+  <div class="container">
+
+
+
+    <h1 style="margin-top: 5%;text-align: center; font-family: 'Times New Roman'; color: azure">E-Voting System</h1>
+
+    <h3 style="text-align: center; margin-top: 5%;font-family: Verdana; color: azure"> Admin Login</h3>
+    <div class="row" style="margin-top:20px">
+      <div style="margin-left: 15%" class="col-xs-8 col-sm-8 col-md-8 ">
+        <form role="form" [formGroup]="loginForm" (ngSubmit)="getUser(loginForm)" novalidate autocomplete="off">
+
+          <div class="form-group" [ngClass]="{'has-error': loginForm.get('username').invalid && loginForm.get('username').dirty}">
+            <label style="color: white" for="username" class="col-sm-2 control-label">Username <sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
+              <input type="text" class="form-control" [formControl]="username" id="username" placeholder="Username" required>
+            </div>
+          </div>
+
+
+          <div class="form-group" [ngClass]="{'has-error': loginForm.get('password').invalid && loginForm.get('password').dirty}">
+            <label style="color: white" for="password" class="col-sm-2 control-label">Password <sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-key"></i></div>
+              <input type="password" class="form-control" [formControl]="password" id="password" placeholder="Password" required>
+            </div>
+          </div>
+
+
+
+
+          <div class="text-center">
+            <button style="margin-left: 3%" type="submit" class="btn btn-primary">Sign In</button>
+          </div>
+
+
+        </form>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+</div>

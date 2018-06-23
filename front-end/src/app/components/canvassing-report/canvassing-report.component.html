@@ -1,0 +1,84 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <app-inner-navbar></app-inner-navbar>
+  <div style="margin-left: -1px" id="loginbox" style="margin-top:10px;" class="mainbox col-md-12 col-sm-12">
+    <div class="panel panel-info" >
+      <div class="panel-heading">
+        <div class="panel-title">
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">All</button>
+            <button type="button" class="btn btn-default">President</button>
+            <button type="button" class="btn btn-default">Vice President</button>
+            <button type="button" class="btn btn-default"><span style="padding: 9px">Members</span></button>
+            <button type="button" class="btn btn-default">General Secretary</button>
+            <button type="button" class="btn btn-default">Joint Secretary</button>
+            <button type="button" class="btn btn-default">Treasurer</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="panel-body" >
+
+        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+
+        <nav class="navbar navbar-default">
+
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Items Per Page</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Default<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">10</a></li>
+                    <li><a href="#">15</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </form>
+
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+
+
+              <input style="margin-right: 5px" type="text" class="form-control" placeholder="Search Here">
+            </div>
+          </form>
+        </nav>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr style="background-color: #f2f2f8">
+              <th>Position</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Dept</th>
+              <th>Photo</th>
+              <th>No. of Votes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1</td>
+              <td>Anna</td>
+              <td>Pitt</td>
+              <td>35</td>
+              <td>New York</td>
+              <td>USA</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
