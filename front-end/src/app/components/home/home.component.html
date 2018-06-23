@@ -31,4 +31,13 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
+
+  <div *ngIf="voter.status">
+    <h3>
+      Thank you
+      {{voter.firstName}} {{voter.middleName}} {{voter.lastName}}
+      for submitting vote!
+    </h3>
+  </div>
 </div>
