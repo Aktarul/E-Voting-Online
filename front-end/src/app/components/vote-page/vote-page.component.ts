@@ -13,6 +13,7 @@ export class VotePageComponent implements OnInit {
 
   vote_local = false;
   vote_status = false;
+
   searchKey: String;
   candidates: Array<Candidate> = new Array<Candidate>();
 
@@ -24,8 +25,8 @@ export class VotePageComponent implements OnInit {
 
   ngOnInit() {
     // localStorage.setItem('president_vote','false');
-    // let vote_temp2 = localStorage.getItem('president_vote');
-    // this.vote_local = (vote_temp2 == "true");
+    let vote_temp2 = localStorage.getItem('president_vote');
+    this.vote_local = (vote_temp2 == "true");
 
     let vote_temp = localStorage.getItem('status');
     this.vote_status = (vote_temp == "true");
@@ -56,12 +57,18 @@ export class VotePageComponent implements OnInit {
   }
 
   vote_add(candidate) {
-    console.log(candidate);
-    this.candidateService.updateVote(candidate._id)
-      .subscribe(res=>{
-        console.log(res.data);
-        // this.router.navigate([`photo-upload-candidate/${res.data._id}`]);
-      })
+    var r = confirm('Are you sure? You can not change the vote!');
+    if(r == true){
+      // console.log(candidate);
+      this.candidateService.updateVote(candidate._id)
+        .subscribe(res=>{
+          console.log(res.data);
+          localStorage.setItem('president_vote','true');
+          this.ngOnInit();
+
+          this.router.navigate(['vice-president']);
+        })
+    }
   }
 
 }

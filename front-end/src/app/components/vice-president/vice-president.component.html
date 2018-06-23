@@ -54,7 +54,7 @@
             </div>
             <div class="caption card-footer">
               <ul class="list-inline">
-                <li><button class="btn btn-success">
+                <li><button (click)="vote_add(candidate)" *ngIf="!vote_local && !vote_status" class="btn btn-success">
                   <i class="fas fa-thumbs-up"></i> Vote this candidate
                 </button></li>
               </ul>

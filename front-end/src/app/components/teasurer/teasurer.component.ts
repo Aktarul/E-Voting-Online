@@ -10,6 +10,9 @@ import {CandidateService} from "../../services/candidate.service";
   styleUrls: ['./teasurer.component.css']
 })
 export class TeasurerComponent implements OnInit {
+  vote_local = false;
+  vote_status = false;
+
   searchKey: String;
   candidates: Array<Candidate> = new Array<Candidate>();
 
@@ -20,6 +23,12 @@ export class TeasurerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let vote_temp2 = localStorage.getItem('treasurer_vote');
+    this.vote_local = (vote_temp2 == "true");
+
+    let vote_temp = localStorage.getItem('status');
+    this.vote_status = (vote_temp == "true");
+
     this.searchKey = "Treasurer";
     console.log('At search = '+ this.searchKey);
     this.candidateService.getSearchCandidate(this.searchKey)
@@ -43,6 +52,21 @@ export class TeasurerComponent implements OnInit {
 
   loginPage() {
     this.router.navigate(['login']);
+  }
+
+  vote_add(candidate) {
+    var r = confirm('Are you sure? You can not change the vote!');
+    if(r == true){
+      // console.log(candidate);
+      this.candidateService.updateVote(candidate._id)
+        .subscribe(res=>{
+          console.log(res.data);
+          localStorage.setItem('treasurer_vote','true');
+          this.ngOnInit();
+
+          this.router.navigate(['member']);
+        })
+    }
   }
 
 }

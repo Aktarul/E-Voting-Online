@@ -10,6 +10,8 @@ import {CandidateService} from "../../services/candidate.service";
   styleUrls: ['./general-secretary.component.css']
 })
 export class GeneralSecretaryComponent implements OnInit {
+  vote_local = false;
+  vote_status = false;
   searchKey: String;
   candidates: Array<Candidate> = new Array<Candidate>();
 
@@ -20,6 +22,12 @@ export class GeneralSecretaryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let vote_temp2 = localStorage.getItem('general_secretary_vote');
+    this.vote_local = (vote_temp2 == "true");
+
+    let vote_temp = localStorage.getItem('status');
+    this.vote_status = (vote_temp == "true");
+
     this.searchKey = "General Secretary";
     console.log('At search = '+ this.searchKey);
     this.candidateService.getSearchCandidate(this.searchKey)
@@ -43,6 +51,21 @@ export class GeneralSecretaryComponent implements OnInit {
 
   loginPage() {
     this.router.navigate(['login']);
+  }
+
+  vote_add(candidate) {
+    var r = confirm('Are you sure? You can not change the vote!');
+    if(r == true){
+      // console.log(candidate);
+      this.candidateService.updateVote(candidate._id)
+        .subscribe(res=>{
+          console.log(res.data);
+          localStorage.setItem('general_secretary_vote','true');
+          this.ngOnInit();
+
+          this.router.navigate(['joint-secretary']);
+        })
+    }
   }
 
 }
