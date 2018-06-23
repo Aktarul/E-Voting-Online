@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+  <nav style="margin: 10px" class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="home"><i class="fas fa-home"></i> Home</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="candidate-list"><b><i class="fas fa-list"></i> Candidate List</b><span class="sr-only">(current)</span></a></li>
+          <li class="active" *ngIf="authService.isLoggedIn()"><a href="vote-page"> <i class="fas fa-list"></i> Vote Now</a></li>
+          <li *ngIf="authService.isAdmin()"><a href="voter-list"> <i class="fas fa-list"></i> Voters List</a></li>
+          <li *ngIf="authService.isAdmin()"><a href="#"><i class="far fa-chart-bar"></i>  Canvassing Report</a></li>
+          <!--<li *ngIf="authService.isAdmin()"><a href="#"> <i class="fas fa-history"></i>  History Log</a></li>-->
+          <li><a href="#"><i class="fab fa-adn"></i> About</a></li>
+        </ul>
+
+        <form class="navbar-form navbar-right">
+          <button  *ngIf="!authService.isLoggedIn()" (click)="loginPage()" type="submit" class="btn btn-warning">Login</button>
+          <button *ngIf="authService.isLoggedIn()" (click)="logOut()" type="submit" class="btn btn-warning">Logout</button>
+        </form>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <div class="row grid">
+
+
+    <div class="panel panel-info">
+      <div class="panel-heading"><h1 style="text-align: center; font-family:'Fira Code Light'">Candidate for President</h1></div>
+      <div class="panel-body">
+
+
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 col-xl-3 card grid-item" *ngFor="let candidate of candidates">
+          <div class="thumbnail">
+            <img src="http://www.firenzeurbanlifestyle.com/sito/wp-content/uploads/2014/02/danzainfiera1.jpg" class="">
+            <div class="caption">
+              <h3 class="card-title" id="name">
+                {{ candidate.firstName }} {{ candidate.middleName }} {{ candidate.lastName }}
+              </h3>
+              <p>Department: <b>{{ candidate.dept }}</b></p>
+            </div>
+            <div class="caption card-footer">
+              <ul class="list-inline">
+                <li><button class="btn btn-success"><i class="fas fa-thumbs-up"></i>Vote</button></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- row -->
+
+
+  <ul class="pagination">
+    <li class="active"><a href="vote-page">President</a></li>
+    <li ><a href="vice-president">Vice President</a></li>
+    <li><a href="general-secretary">General Secretary</a></li>
+    <li><a href="joint-secretary">Joint Secretary</a></li>
+    <li><a href="treasurer">Treasurer</a></li>
+    <li><a href="member">Members</a></li>
+
+  </ul>
+
+
+</div> <!-- container grid -->
+
+
+
