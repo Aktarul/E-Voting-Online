@@ -15,10 +15,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="candidate-list"><b><i class="fas fa-list"></i> Candidate List</b><span class="sr-only">(current)</span></a></li>
-        <li *ngIf="!authService.isAdmin()"><a href="vote-page"> <i class="fas fa-list"></i> Vote Now</a></li>
+        <li *ngIf="authService.isLoggedIn()"><a href="vote-page"> <i class="fas fa-list"></i> Vote Now</a></li>
         <li *ngIf="authService.isAdmin()"><a href="voter-list"> <i class="fas fa-list"></i> Voters List</a></li>
         <li *ngIf="authService.isAdmin()"><a href="#"><i class="far fa-chart-bar"></i>  Canvassing Report</a></li>
-        <li *ngIf="authService.isAdmin()"><a href="#"> <i class="fas fa-history"></i>  History Log</a></li>
+        <!--<li *ngIf="authService.isAdmin()"><a href="#"> <i class="fas fa-history"></i>  History Log</a></li>-->
         <li><a href="#"><i class="fab fa-adn"></i> About</a></li>
       </ul>
 
