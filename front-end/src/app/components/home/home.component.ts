@@ -22,6 +22,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('is_member_visited') == "true"){
+      localStorage.setItem('member_vote','true');
+    }
+
     if(true){
       this.id = localStorage.getItem('loginId');
       this.voterService.getSingleVoter(this.id)

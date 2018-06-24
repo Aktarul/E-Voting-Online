@@ -32,8 +32,7 @@ export class MemberComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let vote_temp3 = localStorage.getItem('is_member_visited');
-    this.vote_local = (vote_temp3 == "true");
+    localStorage.setItem('is_member_visited','true');
 
     let vote_temp2 = localStorage.getItem('member_vote');
     this.vote_local = (vote_temp2 == "true");
@@ -148,7 +147,7 @@ export class MemberComponent implements OnInit {
   }
 
   viewCandidate(candidate){
-    this.router.navigate([`view-candidate/${candidate._id}`]);
+    this.router.navigate([`view-candidate3/${candidate._id}`]);
   }
 
   vote_submit() {

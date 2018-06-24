@@ -34,6 +34,8 @@ import {PhotoUploadCandidateComponent} from "./components/photo-upload-candidate
 import {UpdateCandidateComponent} from "./components/update-candidate/update-candidate.component";
 import {ViewCandidateComponent} from "./components/view-candidate/view-candidate.component";
 import {AuthService} from "./services/auth.service";
+import { ViewCandidate2Component } from './components/view-candidate2/view-candidate2.component';
+import { ViewCandidate3Component } from './components/view-candidate3/view-candidate3.component';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import {AuthService} from "./services/auth.service";
     PhotoUploadComponent,
     PhotoUploadCandidateComponent,
     UpdateCandidateComponent,
-    ViewCandidateComponent
+    ViewCandidateComponent,
+    ViewCandidate2Component,
+    ViewCandidate3Component
   ],
   imports: [
     BrowserModule,

@@ -25,6 +25,10 @@ export class CanvassingReportComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('is_member_visited') == "true"){
+      localStorage.setItem('member_vote','true');
+    }
+
     this.candidateService.getCandidate()
       .subscribe(res =>{
         this.candidates = res.data;

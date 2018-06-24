@@ -27,6 +27,10 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('is_member_visited') == "true"){
+      localStorage.setItem('member_vote','true');
+    }
+
     this.loginForm = this.formBuilder.group({
       // username: this.username,
       // password: this.password

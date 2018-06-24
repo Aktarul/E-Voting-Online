@@ -29,6 +29,10 @@ export class GeneralSecretaryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('is_member_visited') == "true"){
+      localStorage.setItem('member_vote','true');
+    }
+
     let vote_temp2 = localStorage.getItem('general_secretary_vote');
     this.vote_local = (vote_temp2 == "true");
 
@@ -94,7 +98,7 @@ export class GeneralSecretaryComponent implements OnInit {
   }
 
   viewCandidate(candidate){
-    this.router.navigate([`view-candidate/${candidate._id}`]);
+    this.router.navigate([`view-candidate2/${candidate._id}`]);
   }
 
   vote_add(candidate) {

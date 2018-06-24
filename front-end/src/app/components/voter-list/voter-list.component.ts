@@ -25,6 +25,10 @@ export class VoterListComponent implements OnInit {
   backupVoters: Array<Voter> = new Array<Voter>();
 
   ngOnInit() {
+    if(localStorage.getItem('is_member_visited') == "true"){
+      localStorage.setItem('member_vote','true');
+    }
+
     this.voterService.getVoter()
       .subscribe(res=>{
           this.voters = res.data;

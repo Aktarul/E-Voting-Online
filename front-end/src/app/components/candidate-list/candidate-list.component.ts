@@ -25,6 +25,9 @@ export class CandidateListComponent implements OnInit {
   candidates: Array<Candidate> = new Array<Candidate>();
 
   ngOnInit() {
+    if(localStorage.getItem('is_member_visited') == "true"){
+      localStorage.setItem('member_vote','true');
+    }
 
     this.candidateService.getCandidate()
       .subscribe(res =>{
