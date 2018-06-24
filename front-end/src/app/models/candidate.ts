@@ -10,6 +10,7 @@ export class Candidate{
   email: String;
   username: String;
   password: String;
+  party: String;
   total_vote: Number;
 
 }

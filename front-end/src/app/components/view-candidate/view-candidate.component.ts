@@ -29,4 +29,8 @@ export class ViewCandidateComponent implements OnInit {
 
   }
 
+  canList() {
+    this.router.navigate(['/candidate-list']);
+  }
+
 }

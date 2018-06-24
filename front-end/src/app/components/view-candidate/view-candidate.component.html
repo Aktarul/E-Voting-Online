@@ -13,32 +13,33 @@
           <div class="thumbnail">
             <img src="http://localhost:8080/{{candidate.picture}}" class="image">
             <div class="caption">
-              <p class="card-title" id="thumbnail-label">Candidate for <b>: <span style="color: #ff3528"> {{candidate.position}}</span></b></p>
+              <p class="card-title" id="thumbnail-label">Candidate for <b> : <span style="color: #ff3528"> {{candidate.position}}</span></b></p>
 
               <table>
                 <tr>
                   <td><b>Name  </b></td>
-                  <td><b>:</b> {{candidate.firstName}} {{candidate.middleName}} {{candidate.lastName}}</td>
+                  <td><b> : </b> {{candidate.firstName}} {{candidate.middleName}} {{candidate.lastName}}</td>
                 </tr>
                 <tr>
                   <td><b>Department  </b></td>
-                  <td><b>:</b> {{candidate.dept}}</td>
+                  <td><b> : </b> {{candidate.dept}}</td>
                 </tr>
                 <tr>
                   <td><b>Party  </b></td>
-                  <td><b>:</b></td>
+                  <td><b> : </b> {{candidate.party}} </td>
                 </tr>
                 <tr>
                   <td><b>Status  </b></td>
-                  <td><b>:</b></td>
+                  <td><b> : </b> </td>
                 </tr>
               </table>
             </div>
             <div class="caption card-footer">
               <ul class="list-inline">
 
-                <li><button class="btn btn-success pull-left"><i class="fas fa-thumbs-up"></i>Vote</button></li>
-                <li><button class="btn btn-success pull-right"><i class="fas fa-thumbs-up"></i>Vote</button></li>
+                <li><button (click)="canList()" class="btn btn-success pull-left">
+                  <i class="fas fa-arrow-left"></i> get back to Candidate list
+                </button></li>
 
               </ul>
             </div>

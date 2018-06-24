@@ -21,6 +21,7 @@ var createCadidate = (req, res, next) => {
         email = req.body.email,
         username = req.body.username,
         password = req.body.password,
+        party = req.body.party,
         total_vote = req.body.total_vote;
 
     var newCandidate = new Cadidate({
@@ -32,6 +33,7 @@ var createCadidate = (req, res, next) => {
         email: email,
         username: username,
         password: password,
+        party: party,
         total_vote: total_vote
 });
 
@@ -89,6 +91,7 @@ var updateCandidate = (req, res, next) =>{
         dept = req.body.dept,
         email = req.body.email,
         username = req.body.username,
+        party = req.body.party,
         password = req.body.password;
 
 
@@ -110,6 +113,7 @@ var updateCandidate = (req, res, next) =>{
             candidate.dept = dept || candidate.dept;
             candidate.position = position || candidate.position;
             candidate.email = email || candidate.email;
+            candidate.party = party || candidate.party;
             candidate.username = username || candidate.username;
 
 
@@ -150,6 +154,7 @@ var updateCandidate2 = (req, res, next) =>{
                 position = req.body.position,
                 dept = req.body.dept,
                 email = req.body.email,
+                party = req.body.party,
                 username = req.body.username,
                 password = req.body.password;
                 picture = req.file.filename ;
@@ -173,6 +178,7 @@ var updateCandidate2 = (req, res, next) =>{
                     candidate.dept = middleName || candidate.dept;
                     candidate.position = position || candidate.position;
                     candidate.email = position || candidate.email;
+                    candidate.party = party || candidate.party;
                     candidate.username = position || candidate.username;
                     candidate.picture = picture || candidate.picture;
 

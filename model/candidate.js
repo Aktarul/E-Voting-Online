@@ -12,8 +12,9 @@ var candidateSchema = new Schema({
     email: { type: String},
     username: { type: String },
     password: { type: String},
-    total_vote: { type: Number}
-})
+    total_vote: { type: Number},
+    party: { type: String}
+});
 
 module.exports = mongoose.model('Candidate', candidateSchema);
 
