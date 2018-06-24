@@ -49,6 +49,14 @@
 
 
           <div class="form-group">
+            <label for="degree" class="col-md-3 control-label">Status</label>
+            <div class="col-md-9">
+              <input type="text" [(ngModel)]="candidate.degree" class="form-control" name="degree" id="degree" placeholder="Degree">
+            </div>
+          </div>
+
+
+          <div class="form-group">
             <label for="party" class="col-md-3 control-label">Party</label>
             <div class="col-md-9">
               <input type="text" [(ngModel)]="candidate.party" class="form-control" name="party" id="party" placeholder="Party">

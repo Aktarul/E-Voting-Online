@@ -22,6 +22,7 @@ var createCadidate = (req, res, next) => {
         username = req.body.username,
         password = req.body.password,
         party = req.body.party,
+        degree = req.body.degree,
         total_vote = req.body.total_vote;
 
     var newCandidate = new Cadidate({
@@ -34,10 +35,12 @@ var createCadidate = (req, res, next) => {
         username: username,
         password: password,
         party: party,
+        degree: degree,
         total_vote: total_vote
-});
+    });
 
-
+    console.log('in candidate create: ');
+    console.log(newCandidate);
 
 
     Cadidate.addUser(newCandidate, (err, candidate) =>{
@@ -92,6 +95,7 @@ var updateCandidate = (req, res, next) =>{
         email = req.body.email,
         username = req.body.username,
         party = req.body.party,
+        degree = req.body.degree,
         password = req.body.password;
 
 
@@ -114,6 +118,7 @@ var updateCandidate = (req, res, next) =>{
             candidate.position = position || candidate.position;
             candidate.email = email || candidate.email;
             candidate.party = party || candidate.party;
+            candidate.degree = degree || candidate.degree;
             candidate.username = username || candidate.username;
 
 
@@ -155,11 +160,10 @@ var updateCandidate2 = (req, res, next) =>{
                 dept = req.body.dept,
                 email = req.body.email,
                 party = req.body.party,
+                degree = req.body.degree,
                 username = req.body.username,
                 password = req.body.password;
                 picture = req.file.filename ;
-
-
 
 
             Cadidate.findById(req.params.id, (err, candidate) => {
@@ -171,7 +175,6 @@ var updateCandidate2 = (req, res, next) =>{
                 }
                 else {
 
-
                     candidate.firstName = firstName || candidate.firstName;
                     candidate.middleName = middleName || candidate.middleName;
                     candidate.lastName = middleName || candidate.lastName;
@@ -179,6 +182,7 @@ var updateCandidate2 = (req, res, next) =>{
                     candidate.position = position || candidate.position;
                     candidate.email = position || candidate.email;
                     candidate.party = party || candidate.party;
+                    candidate.degree = degree || candidate.degree;
                     candidate.username = position || candidate.username;
                     candidate.picture = picture || candidate.picture;
 
@@ -191,8 +195,6 @@ var updateCandidate2 = (req, res, next) =>{
                             });
                         }
                         else {
-
-
 
                             return res.status(200).json({
                                 success: true,

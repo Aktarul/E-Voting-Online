@@ -12,5 +12,5 @@ export class Candidate{
   password: String;
   party: String;
   total_vote: Number;
-
+  degree: String;
 }

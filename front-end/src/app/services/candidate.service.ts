@@ -31,6 +31,8 @@ export class CandidateService {
   }
 
   registerCandidate(candidate){
+    console.log('register candidate: ');
+    console.log(candidate);
     return this.http.post(`${environment.baseUrl}/candidate`,candidate,this.options)
       .map( res=>res.json());
   }

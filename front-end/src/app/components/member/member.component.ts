@@ -119,4 +119,10 @@ export class MemberComponent implements OnInit {
     this.router.navigate([`view-candidate/${candidate._id}`]);
   }
 
+  vote_submit() {
+    localStorage.setItem('member_vote','true');
+    this.ngOnInit();
+    this.router.navigate(['home']);
+  }
+
 }

@@ -13,7 +13,8 @@ var candidateSchema = new Schema({
     username: { type: String },
     password: { type: String},
     total_vote: { type: Number},
-    party: { type: String}
+    party: { type: String},
+    degree: { type: String}
 });
 
 module.exports = mongoose.model('Candidate', candidateSchema);
