@@ -13,4 +13,5 @@ export class Candidate{
   party: String;
   total_vote: Number;
   degree: String;
+  picture: String;
 }

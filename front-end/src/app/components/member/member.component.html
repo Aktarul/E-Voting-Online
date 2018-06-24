@@ -43,8 +43,14 @@
       <div class="panel-heading"><h2 style="text-align: center; font-family:'Fira Code Light'">Candidate for Member</h2></div>
 
       <div class="member">
-        You can vote maximum 10 members of different department.
+        <b>Rule 1: </b> You can vote maximum 10 members of different department.
         Your can vote more {{ rem_vote }} candidates
+      </div>
+
+      <div class="member">
+        <b>Rule 2: </b> On this page you can submit your vote only a time.
+        So before leaving this page please confirm that you selected your
+        desired candidates and you have clicked on submit button.
       </div>
 
       <div class="panel-body">
@@ -56,7 +62,7 @@
               <h4 class="card-title showTwo" id="name">
                 {{ candidate.firstName }} {{ candidate.middleName }} {{ candidate.lastName }}
               </h4>
-              <p class="showOne">Department: <b>{{ candidate.dept }}</b></p>
+              <p class="showOne">Dept : <b>{{ candidate.dept }}</b></p>
             </div>
             <div  class="caption card-footer">
               <ul class="list-inline">
@@ -67,7 +73,7 @@
             </div>
           </div>
         </div>
-
+        <h4>{{message}}</h4>
 
       </div>
 

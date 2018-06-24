@@ -56,6 +56,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('joint_secretary_vote','false');
         localStorage.setItem('member_vote','false');
         localStorage.setItem('treasurer_vote','false');
+        localStorage.setItem('rem_member_vote','10');
+        localStorage.setItem('is_member_visited','false');
 
         this.authService.storeUserDatta(res.token, res.data);
         // this._flashMessagesService.show('You are now Logged In!', { cssClass: 'alert-success' } );

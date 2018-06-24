@@ -14,7 +14,8 @@ import {Voter} from "../../models/voter";
 export class MemberComponent implements OnInit {
   vote_local = false;
   vote_status = false;
-  rem_vote = 10;
+  rem_vote: number;
+  message = " ";
 
   searchKey: String;
   candidates: Array<Candidate> = new Array<Candidate>();
@@ -31,6 +32,9 @@ export class MemberComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let vote_temp3 = localStorage.getItem('is_member_visited');
+    this.vote_local = (vote_temp3 == "true");
+
     let vote_temp2 = localStorage.getItem('member_vote');
     this.vote_local = (vote_temp2 == "true");
 
@@ -44,6 +48,9 @@ export class MemberComponent implements OnInit {
         this.candidates = res.data;
         // console.log(this.candidates);
       });
+
+
+    this.rem_vote = parseInt(localStorage.getItem('rem_member_vote'));
 
 
     // changing status starts
@@ -102,9 +109,34 @@ export class MemberComponent implements OnInit {
       this.candidateService.updateVote(candidate._id)
         .subscribe(res =>{
           // console.log(res.data);
-          // this.candidates.splice(this.candidates.indexOf(candidate), 1);
-          this.rem_vote = this.rem_vote - 1;
 
+          // view delete same category candidates one by one
+          console.log(candidate);
+          let len = this.candidates.length;
+          let len2 = len;
+          for(var i = 0 ; i < len2 ; i++){
+            for(var j = 0 ; j < len ; j ++ ) {
+              // console.log(i +" " + j);
+              if(candidate.dept == this.candidates[j].dept) {
+                this.candidates.splice(this.candidates.indexOf(this.candidates[j]), 1);
+                len--;
+
+                if(this.candidates.length == 0){
+                  this.message = "No candidates left to vote! " +
+                    "Please submit your votes clicking on submit vote button below.";
+                }
+              }
+            }
+          }
+
+
+          // updating remaining vote
+          this.rem_vote = parseInt(localStorage.getItem('rem_member_vote'));
+          this.rem_vote = this.rem_vote - 1;
+          localStorage.setItem('rem_member_vote', this.rem_vote.toString());
+          // console.log('remaining vote:' + this.rem_vote);
+
+          // if remaining vote finished then member_vote will be true
           if(!this.rem_vote) {
             localStorage.setItem('member_vote','true');
             this.ngOnInit();
