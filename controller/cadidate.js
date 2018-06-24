@@ -152,7 +152,7 @@ var updateCandidate2 = (req, res, next) =>{
                 email = req.body.email,
                 username = req.body.username,
                 password = req.body.password;
-                picture = req.file.picture ;
+                picture = req.file.filename ;
 
 
 
