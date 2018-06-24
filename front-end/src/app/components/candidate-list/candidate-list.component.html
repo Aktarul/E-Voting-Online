@@ -44,8 +44,6 @@
 
           <form class="navbar-form navbar-right" role="search">
             <div class="form-group">
-
-
               <input style="margin-right: 5px" type="text" class="form-control" placeholder="Search Here">
             </div>
           </form>
@@ -73,7 +71,7 @@
               <td style="text-align: center">
                 <button *ngIf="authService.isAdmin()" (click)="updateCandidate(candidate)" class="btn btn-primary"><i class="far fa-edit"></i> Edit</button>
                 <button (click)="viewCandidate(candidate)"  class="btn btn-info"><i class="fas fa-eye"></i> View</button>
-                <button  *ngIf="authService.isAdmin()" (click)="deleteCandidate(candidate)" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</button>
+                <button  *ngIf="authService.isAdmin()" (click)="deleteCandidate(candidate)" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
               </td>
             </tr>
             </tbody>

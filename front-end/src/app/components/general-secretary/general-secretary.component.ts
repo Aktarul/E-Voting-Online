@@ -93,6 +93,10 @@ export class GeneralSecretaryComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  viewCandidate(candidate){
+    this.router.navigate([`view-candidate/${candidate._id}`]);
+  }
+
   vote_add(candidate) {
     var r = confirm('Are you sure? You can not change the vote!');
     if(r == true){

@@ -14,6 +14,7 @@ import {Voter} from "../../models/voter";
 export class MemberComponent implements OnInit {
   vote_local = false;
   vote_status = false;
+  rem_vote = 10;
 
   searchKey: String;
   candidates: Array<Candidate> = new Array<Candidate>();
@@ -99,16 +100,23 @@ export class MemberComponent implements OnInit {
     if(r == true){
       // console.log(candidate);
       this.candidateService.updateVote(candidate._id)
-        .subscribe(res=>{
+        .subscribe(res =>{
           // console.log(res.data);
-          localStorage.setItem('member_vote','true');
-          this.ngOnInit();
+          // this.candidates.splice(this.candidates.indexOf(candidate), 1);
+          this.rem_vote = this.rem_vote - 1;
 
-          this.router.navigate(['home']);
+          if(!this.rem_vote) {
+            localStorage.setItem('member_vote','true');
+            this.ngOnInit();
+            this.router.navigate(['home']);
+          }
         })
     }
 
   }
 
+  viewCandidate(candidate){
+    this.router.navigate([`view-candidate/${candidate._id}`]);
+  }
 
 }
