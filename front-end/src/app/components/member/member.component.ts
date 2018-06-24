@@ -101,6 +101,11 @@ export class MemberComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  adminPage() {
+    this.router.navigate(['admin']);
+  }
+
+
   vote_add(candidate) {
     var r = confirm('Are you sure? You can not change the vote!');
     if(r == true){

@@ -26,7 +26,8 @@
         </ul>
 
         <form class="navbar-form navbar-right">
-          <button  *ngIf="!authService.isLoggedIn()" (click)="loginPage()" type="submit" class="btn btn-warning">Login</button>
+          <button  *ngIf="!authService.isLoggedIn()" (click)="loginPage()" type="submit" class="btn btn-warning">User Login</button>
+          <button  *ngIf="!authService.isLoggedIn()" (click)="adminPage()" type="submit" class="btn btn-sm btn-warning">Admin Login</button>
           <button *ngIf="authService.isLoggedIn()" (click)="logOut()" type="submit" class="btn btn-warning">Logout</button>
         </form>
 

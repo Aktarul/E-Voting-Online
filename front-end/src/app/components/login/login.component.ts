@@ -74,5 +74,9 @@ export class LoginComponent implements OnInit {
 
   }
 
+  adminPage(){
+    this.router.navigate(['admin']);
+  }
+
 
 }

@@ -54,6 +54,11 @@ export class CanvassingReportComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  adminPage() {
+    this.router.navigate(['admin']);
+  }
+
+
   sort() {
     var length = this.candidates.length;
 

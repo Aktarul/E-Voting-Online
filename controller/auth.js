@@ -1,6 +1,7 @@
 var jwt = require('jsonwebtoken'),
     config = require('../config'),
-    Voter = require('../model/voter');
+    Voter = require('../model/voter'),
+    Admin = require('../model/admin');
 
 var userLogin = (req, res, next) => {
     var email = req.body.email,
@@ -34,7 +35,42 @@ var userLogin = (req, res, next) => {
             });
         }
     });
-}
+};
+
+
+var adminLogin = (req, res, next) => {
+    var email = req.body.email,
+        password = req.body.password;
+    console.log(req.body);
+
+    Admin.findOne({email: email}, (err, user) => {
+        if(err) {
+            console.log(err);
+        }
+        else if (!user) {
+            return res.status(201).json({
+                success: false,
+                message: 'User don\'t exist'
+            });
+        } else {
+            console.log(user);
+            Admin.comparePassword(password, user.password, (err, match) => {
+                if(err) {
+
+                } else if(match) {
+                    var token = jwt.sign(user.toJSON(), config.secret, {expiresIn: config.tokenexp});
+                    // return res.status(201).json({success: true, data: user});
+                    return res.status(201).json({success: true, data: user, token: token });
+                } else {
+                    return res.status(201).json({
+                        success: false,
+                        message: 'password don\'t match'
+                    });
+                }
+            });
+        }
+    });
+};
 
 var userAuthenticate = (req, res, next) => {
     var token = req.body.token || req.headers['authorization'];
@@ -48,7 +84,7 @@ var userAuthenticate = (req, res, next) => {
             }
         });
     }
-}
+};
 
 var adminAuthenticate = (req, res, next) => {
 
@@ -87,10 +123,11 @@ var adminAuthenticate = (req, res, next) => {
             message: 'Invalid Admin credentials'
         });
     }
-}
+};
 
 module.exports = {
     userLogin,
     userAuthenticate,
-    adminAuthenticate
+    adminAuthenticate,
+    adminLogin
 }

@@ -40,4 +40,9 @@ export class InnerNavbarComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  adminPage() {
+    this.router.navigate(['admin']);
+  }
+
+
 }

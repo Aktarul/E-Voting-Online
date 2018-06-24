@@ -1,51 +1,65 @@
 <app-navbar></app-navbar>
 
-
-<div  class="bg">
-  <div class="container">
-
-
-
-    <h1 style="margin-top: 5%;text-align: center; font-family: 'Times New Roman'; color: azure">E-Voting System</h1>
-
-    <h3 style="text-align: center; margin-top: 5%;font-family: Verdana; color: azure"> Admin Login</h3>
-    <div class="row" style="margin-top:20px">
-      <div style="margin-left: 15%" class="col-xs-8 col-sm-8 col-md-8 ">
-        <form role="form" [formGroup]="loginForm" (ngSubmit)="getUser(loginForm)" novalidate autocomplete="off">
-
-          <div class="form-group" [ngClass]="{'has-error': loginForm.get('username').invalid && loginForm.get('username').dirty}">
-            <label style="color: white" for="username" class="col-sm-2 control-label">Username <sup>*</sup></label>
-            <div class="input-group col-sm-10">
-              <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
-              <input type="text" class="form-control" [formControl]="username" id="username" placeholder="Username" required>
-            </div>
-          </div>
-
-
-          <div class="form-group" [ngClass]="{'has-error': loginForm.get('password').invalid && loginForm.get('password').dirty}">
-            <label style="color: white" for="password" class="col-sm-2 control-label">Password <sup>*</sup></label>
-            <div class="input-group col-sm-10">
-              <div class="input-group-addon"><i class="fas fa-key"></i></div>
-              <input type="password" class="form-control" [formControl]="password" id="password" placeholder="Password" required>
-            </div>
-          </div>
-
-
-
-
-          <div class="text-center">
-            <button style="margin-left: 3%" type="submit" class="btn btn-primary">Sign In</button>
-          </div>
-
-
-        </form>
+<div class="container">
+  <nav style="margin: 10px" class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="home"><i class="fas fa-home"></i> Home</a>
       </div>
 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="candidate-list"><b><i class="fas fa-list"></i> Candidate List</b><span class="sr-only">(current)</span></a></li>
+          <li><a href="#"><i class="fab fa-adn"></i> About</a></li>
+        </ul>
+
+        <form class="navbar-form navbar-right">
+          <button  *ngIf="!authService.isLoggedIn()" (click)="loginPage()" type="submit" class="btn btn-warning">User Login</button>
+        </form>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info" >
+      <div class="panel-heading">
+        <div class="panel-title" style="font-size: 130%"><b>Admin</b> Sign In</div>
+      </div>
+
+      <div style="padding-top:30px" class="panel-body" >
+
+        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+        <form id="loginform" class="form-horizontal" role="form">
+
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" [(ngModel)]="email" class="form-control" name="email" id="email"  placeholder="Admin Email">
+          </div>
+
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" [(ngModel)]="password" class="form-control" name="password" id="password2"  placeholder="Admin Password">
+          </div>
+
+          <div style="margin-top:10px" class="form-group">
+            <div class="col-sm-12 controls">
+              <a id="btn-login" (click)="onLoginSubmit()" class="btn btn-success">Login</a>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-
-
-
   </div>
-
 
 </div>

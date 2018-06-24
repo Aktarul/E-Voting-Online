@@ -99,6 +99,11 @@ export class VotePageComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  adminPage() {
+    this.router.navigate(['admin']);
+  }
+
+
   viewCandidate(candidate){
     this.router.navigate([`view-candidate2/${candidate._id}`]);
   }

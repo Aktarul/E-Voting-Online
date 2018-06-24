@@ -64,6 +64,10 @@ export class VoterListComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  adminPage() {
+    this.router.navigate(['admin']);
+  }
+
   voted() {
     this.newVoters = [];
     let j = 0;
