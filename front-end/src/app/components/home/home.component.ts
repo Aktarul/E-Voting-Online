@@ -21,10 +21,11 @@ export class HomeComponent implements OnInit {
     protected voterService: VoterService
   ) {
     this.items = [
-      { name: '../assets/images/102.jpg' },
-      { name: '../assets/images/101.jpg' },
-      { name: '../assets/images/100.jpg' },
-      { name: '../assets/images/103.png' }
+      { name: '../assets/images/501.jpg' },
+      { name: '../assets/images/502.jpg' },
+      { name: '../assets/images/503.jpg' },
+      // { name: '../assets/images/504.png' },
+      // { name: '../assets/images/505.png' },
     ]
   }
 

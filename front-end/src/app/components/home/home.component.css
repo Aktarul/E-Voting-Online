@@ -1,3 +1,8 @@
+.slideShow {
+  float: left;
+  max-width: 620px;
+  border: 3px solid rgba(50,50,50,0.6);
+}
 #container2 {
   width: 100%;
   /*margin: 5em auto;*/
@@ -15,15 +20,62 @@
   margin: 30px;
 }
 
-
-.slideShow {
-  max-width: 600px;
-  border: 3px solid rgb(50,50,50);
-}
-
 .photoGallery {
-  background-color: rgba(245,245,245,0.6);
+  background-color: rgb(245,245,245);
   font-size: 150%;
   text-align: center;
   font-weight: bold;
+}
+
+.mission {
+  float: right;
+  /*float: top;*/
+  border-radius: 25px;
+  border: 3px solid rgba(20,20,20,0.6);
+  padding: 15px;
+  /*width: 350px;*/
+  height: 200px;
+  margin-top: 20px;
+}
+
+.mission1 {
+  width: 350px;
+  margin-right: 50px;
+}
+
+.mission2 {
+  width: 380px;
+  margin-right: 40px;
+}
+
+@media screen and (max-width: 1100px) {
+  .mission {
+    float: left;
+  }
+  .mission1 {
+    margin-right: 0px;
+  }
+  .mission2 {
+    margin-right: 0px;
+  }
+}
+
+.mission:hover {
+  background-color: rgb(245,245,245);
+}
+
+.home-title {
+  font-size: 130%;
+  background-color: rgb(200,200,200);
+  padding: 8px;
+  font-weight: bold;
+}
+
+.home_description {
+  font-size: 110%;
+}
+
+.image_show {
+  height: 400px;
+  width: 580px;
 }

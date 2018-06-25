@@ -49,7 +49,7 @@
         ng2-carouselamos
         class="slides-wrapper"
         [items]="items"
-        [width]="600"
+        [width]="620"
         [$prev]="prev"
         [$next]="next"
         [$item]="item"
@@ -65,7 +65,7 @@
 
       <ng-template #item let-item let-i="index">
         <div class="items2">
-          <img height="400px" width="550px" src="{{ item.name }}">
+          <img class="image_show" src="{{ item.name }}">
         </div>
       </ng-template>
 
@@ -73,20 +73,32 @@
         Photo Gallery
       </div>
     </div>
-  <!--slide show ends-->
+  </div>
+    <!--slide show ends-->
 
 
-    <div class="mission">
-      <div class="home-title">
-      </div>
-      <div class="home_description">
-        Our mission is to digitize the voting process of <b>Teachers Association</b>
-        of University of Rajshahi. To cope with the development of the country,
-        teachers association electing is arranged online to simplify, easy and fast
-        the voting process.
-      </div>
+  <div class="mission mission1">
+    <div class="home-title">
+      Our Mission
     </div>
+    <div class="home_description">
+      Our mission is to digitize the voting process of <b>Teachers Association</b>
+      of <b>University of Rajshahi</b>. To cope with the development of the country,
+      teachers association electing is arranged online to simplify, easy and fast
+      the voting process.
+    </div>
+  </div>
 
+  <div class="mission mission2 ">
+    <div class="home-title">
+      Objectives
+    </div>
+    <div class="home_description">
+      <li>Reviewing the existing voting approach.</li>
+      <li>Coming up with an automated  voting system </li>
+      <li>Implementing  an automated/ E-voting system </li>
+      <li>Validating the system to ensure that only eligible voters are allowed to vote</li>
+    </div>
+  </div>
 
 </div>
-
