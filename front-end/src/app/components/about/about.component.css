@@ -1,0 +1,25 @@
+.mission {
+  float: right;
+  /*float: top;*/
+  border-radius: 25px;
+  border: 5px solid rgba(20,20,20,0.6);
+  padding: 15px;
+  /*width: 350px;*/
+  margin-top: 20px;
+}
+
+.mission1 {
+  width: 100%;
+}
+
+.home-title {
+  font-size: 130%;
+  background-color: rgb(200,200,200);
+  padding: 8px;
+  font-weight: bold;
+}
+
+.home_description {
+  font-size: 120%;
+  margin-left: 2%;
+}
