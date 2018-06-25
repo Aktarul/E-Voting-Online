@@ -37,6 +37,7 @@ import {AuthService} from "./services/auth.service";
 import { ViewCandidate2Component } from './components/view-candidate2/view-candidate2.component';
 import { ViewCandidate3Component } from './components/view-candidate3/view-candidate3.component';
 import { Ng2CarouselamosModule} from "ng2-carouselamos";
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { Ng2CarouselamosModule} from "ng2-carouselamos";
     UpdateCandidateComponent,
     ViewCandidateComponent,
     ViewCandidate2Component,
-    ViewCandidate3Component
+    ViewCandidate3Component,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -58,6 +58,16 @@
   .mission2 {
     margin-right: 0px;
   }
+
+}
+
+@media screen and (max-width: 700px) {
+  .slideShow {
+    max-width: 100%;
+  }
+  .image_show {
+    width: 100%;
+  }
 }
 
 .mission:hover {

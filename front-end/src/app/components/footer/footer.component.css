@@ -12,17 +12,28 @@
   margin-left: 40%;
 }
 
+.links {
+  margin-left: 48%;
+}
+
 @media screen and (max-width: 700px) {
   .copyRight {
     margin-left: 20%;
+
   }
   .footer {
     max-width: 100%;
+  }
+  .links {
+    margin-left: 25%;
   }
 }
 
 @media screen and (max-width: 310px) {
   .copyRight {
     margin-left: 0%;
+  }
+  .links {
+    margin-left: 5%;
   }
 }
