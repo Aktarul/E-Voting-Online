@@ -10,7 +10,7 @@ import {Voter} from "../../models/voter";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  items: Array<any> = [];
   id: any;
 
   voter = new Voter();
@@ -19,7 +19,14 @@ export class HomeComponent implements OnInit {
     private router: Router,
     public authService: AuthService,
     protected voterService: VoterService
-  ) { }
+  ) {
+    this.items = [
+      { name: '../assets/images/102.jpg' },
+      { name: '../assets/images/101.jpg' },
+      { name: '../assets/images/100.jpg' },
+      { name: '../assets/images/103.png' }
+    ]
+  }
 
   ngOnInit() {
     if(localStorage.getItem('is_member_visited') == "true"){

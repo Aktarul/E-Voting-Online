@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar xmlns=""></app-navbar>
 <div class="container">
   <nav style="margin: 15px" class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -41,4 +41,52 @@
       for submitting vote!
     </h3>
   </div>
+
+  <!--slide show starts-->
+  <div class="slideShow">
+    <div id="container2">
+      <div
+        ng2-carouselamos
+        class="slides-wrapper"
+        [items]="items"
+        [width]="600"
+        [$prev]="prev"
+        [$next]="next"
+        [$item]="item"
+      > </div>
+
+
+      <ng-template #prev>
+        <img width="40px" height="40px" src="assets/images/left-arrow.png" id="left" />
+      </ng-template>
+      <ng-template #next>
+        <img width="40px" height="40px" src="assets/images/right-arrow.png" id="right" />
+      </ng-template>
+
+      <ng-template #item let-item let-i="index">
+        <div class="items2">
+          <img height="400px" width="550px" src="{{ item.name }}">
+        </div>
+      </ng-template>
+
+      <div class="photoGallery">
+        Photo Gallery
+      </div>
+    </div>
+  <!--slide show ends-->
+
+
+    <div class="mission">
+      <div class="home-title">
+      </div>
+      <div class="home_description">
+        Our mission is to digitize the voting process of <b>Teachers Association</b>
+        of University of Rajshahi. To cope with the development of the country,
+        teachers association electing is arranged online to simplify, easy and fast
+        the voting process.
+      </div>
+    </div>
+
+
 </div>
+

@@ -36,7 +36,7 @@ import {ViewCandidateComponent} from "./components/view-candidate/view-candidate
 import {AuthService} from "./services/auth.service";
 import { ViewCandidate2Component } from './components/view-candidate2/view-candidate2.component';
 import { ViewCandidate3Component } from './components/view-candidate3/view-candidate3.component';
-
+import { Ng2CarouselamosModule} from "ng2-carouselamos";
 
 @NgModule({
   declarations: [
@@ -73,7 +73,8 @@ import { ViewCandidate3Component } from './components/view-candidate3/view-candi
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    FileUploadModule
+    FileUploadModule,
+    Ng2CarouselamosModule
 
   ],
   providers: [
@@ -81,7 +82,7 @@ import { ViewCandidate3Component } from './components/view-candidate3/view-candi
     VoterService,
     PasswordValidationService,
     CandidateService,
-    AuthService
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })
