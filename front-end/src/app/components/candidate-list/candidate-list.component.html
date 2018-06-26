@@ -16,7 +16,7 @@
           </div>
 
         </div>
-        <button (click)="registerCandidate()" style="margin-top: 5px" class="btn btn-default"><i class="fas fa-plus"></i> Add Candidates</button>
+        <button *ngIf="authService.isAdmin()" (click)="registerCandidate()" style="margin-top: 5px" class="btn btn-default"><i class="fas fa-plus"></i> Add Candidates</button>
       </div>
 
       <div class="panel-body" >
