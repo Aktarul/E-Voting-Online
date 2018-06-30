@@ -48,6 +48,11 @@ export class MemberComponent implements OnInit {
         // console.log(this.candidates);
       });
 
+    // this.candidates = localStorage.getItem('members');
+    //
+    // let candid: any;
+    // candid = localStorage.getItem('members');
+    // console.log(candid);
 
     this.rem_vote = parseInt(localStorage.getItem('rem_member_vote'));
 

@@ -38,6 +38,7 @@ import { ViewCandidate2Component } from './components/view-candidate2/view-candi
 import { ViewCandidate3Component } from './components/view-candidate3/view-candidate3.component';
 import { Ng2CarouselamosModule} from "ng2-carouselamos";
 import { AboutComponent } from './components/about/about.component';
+import {VotePublishService} from "./services/vote-publish.service";
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { AboutComponent } from './components/about/about.component';
     PasswordValidationService,
     CandidateService,
     AuthService,
+    VotePublishService
   ],
   bootstrap: [AppComponent]
 })

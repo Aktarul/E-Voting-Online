@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import { AuthService } from "../../services/auth.service";
+import {CandidateService} from "../../services/candidate.service";
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private candidateService: CandidateService
   ) { }
 
   ngOnInit() {
@@ -50,6 +52,15 @@ export class LoginComponent implements OnInit {
        console.log(user);
 
       if (res.success) {
+        // get members
+        // let searchKey = "Member";
+        // // console.log('At search = '+ this.searchKey);
+        // this.candidateService.getSearchCandidate(searchKey)
+        //   .subscribe(res => {
+        //     localStorage.setItem('members',res.data);
+        //     // console.log(this.candidates);
+        //   });
+
         // console.log(res.data.isAdmin);
         localStorage.setItem('isAdmin',res.data.isAdmin);
         localStorage.setItem('loginId',res.data._id);

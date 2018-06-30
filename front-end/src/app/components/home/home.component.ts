@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   voter = new Voter();
 
+
   constructor(
     private router: Router,
     public authService: AuthService,
@@ -42,6 +43,7 @@ export class HomeComponent implements OnInit {
           console.log(this.voter.status);
         });
     }
+
   }
 
   logOut() {
