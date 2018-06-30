@@ -18,6 +18,7 @@ export class VotePageComponent implements OnInit {
 
   searchKey: String;
   candidates: Array<Candidate> = new Array<Candidate>();
+  temp_candidates: Array<Candidate> = new Array<Candidate>();
 
   voter = new Voter();
 
@@ -46,8 +47,17 @@ export class VotePageComponent implements OnInit {
     console.log('At search = '+ this.searchKey);
     this.candidateService.getSearchCandidate(this.searchKey)
       .subscribe(res => {
-        this.candidates = res.data;
-        console.log(this.candidates);
+
+        let j = 0;
+        for(let i = 0; i < res.data.length; i++){
+          if(res.data[i].position == "President"){
+            this.temp_candidates[j] = res.data[i];
+            j++;
+          }
+        }
+        this.candidates = this.temp_candidates;
+        console.log(this.temp_candidates);
+        // console.log(this.candidates);
       });
 
     // changing status starts

@@ -13,6 +13,7 @@ export class CanvassingReportComponent implements OnInit {
 
   candidates: Array<Candidate> = new Array<Candidate>();
   newCandidates: Array<Candidate> = new Array<Candidate>();
+  temp_candidates: Array<Candidate> = new Array<Candidate>();
 
   tempCan = new Candidate();
 
@@ -79,9 +80,20 @@ export class CanvassingReportComponent implements OnInit {
     console.log('At search = '+ this.searchKey);
     this.candidateService.getSearchCandidate(this.searchKey)
       .subscribe(res => {
-        console.log(res.data);
-        this.candidates = res.data;
-        this.newCandidates = res.data;
+
+        let j = 0;
+        for(let i = 0; i < res.data.length; i++){
+          if(res.data[i].position == "President"){
+            this.temp_candidates[j] = res.data[i];
+            j++;
+          }
+        }
+        this.candidates = this.temp_candidates;   // only president except vice-president
+        console.log(this.temp_candidates);
+        // console.log(this.candidates);
+
+        // console.log(res.data);
+        this.newCandidates = this.temp_candidates;
         this.sort();
       });
   }
