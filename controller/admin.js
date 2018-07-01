@@ -28,8 +28,68 @@ var createAdmin = (req, res, next) => {
         }
 
     });
-}
+};
+
+var publishResult = (req, res, next) =>{
+
+    console.log('in result publish');
+
+    let tempPublished = true;
+
+    Admin.findById(req.params.id, (err, admin) => {
+        if(err){
+            return res.status(404).json({
+                message: err,
+                success: false
+            });
+        }
+        else {
+            admin.isPublished = tempPublished || admin.isPublished;
+
+            console.log(admin.isPublished);
+
+            admin.save((err, admin) => {
+                console.log('In admin save' + admin);
+                if(err){
+                    console.log('in error: ' + err);
+                    return res.status(404).json({
+                        message: err,
+                        success: false
+                    });
+                }
+                else {
+                    console.log(admin);
+                    return res.status(200).json({
+                        success: true,
+                        data: admin
+                    });
+                }
+            });
+        }
+    });
+
+};
+
+var getSingleAdmin = (req, res, next) =>{
+    Admin.findById(req.params.id, (err, admin) => {
+        if(err){
+            return res.status(404).json({
+                success: false,
+                message: err
+            })
+
+        }
+        else{
+            return res.status(200).json({
+                success: true,
+                data: admin
+            })
+        }
+    })
+};
 
 module.exports = {
-    createAdmin
-}
+    createAdmin,
+    publishResult,
+    getSingleAdmin
+};

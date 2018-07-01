@@ -246,7 +246,7 @@ var getSingleCandidate = (req, res, next) =>{
             })
         }
     })
-}
+};
 
 var deleteCandidate = (req, res, next) =>{
     let userId = req.params.id;
