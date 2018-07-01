@@ -39,6 +39,7 @@ import { ViewCandidate3Component } from './components/view-candidate3/view-candi
 import { Ng2CarouselamosModule} from "ng2-carouselamos";
 import { AboutComponent } from './components/about/about.component';
 import {VotePublishService} from "./services/vote-publish.service";
+import { ResultComponent } from './components/result/result.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {VotePublishService} from "./services/vote-publish.service";
     ViewCandidateComponent,
     ViewCandidate2Component,
     ViewCandidate3Component,
-    AboutComponent
+    AboutComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

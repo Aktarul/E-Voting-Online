@@ -23,6 +23,7 @@ import {ViewCandidateComponent} from "./components/view-candidate/view-candidate
 import {ViewCandidate2Component} from "./components/view-candidate2/view-candidate2.component";
 import {ViewCandidate3Component} from "./components/view-candidate3/view-candidate3.component";
 import {AboutComponent} from "./components/about/about.component";
+import {ResultComponent} from "./components/result/result.component";
 
 
 const routes: Routes = [
@@ -49,6 +50,7 @@ const routes: Routes = [
   {path: 'view-candidate3/:id', component: ViewCandidate3Component},
   {path: 'canvassing-report', component: CanvassingReportComponent},
   {path: 'about', component: AboutComponent},
+  {path: 'result', component: ResultComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];

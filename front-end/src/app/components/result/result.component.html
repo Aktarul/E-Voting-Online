@@ -15,12 +15,12 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="home"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="home"><i class="fas fa-home"></i> Home</a></li>
           <li><a href="candidate-list"><b><i class="fas fa-list"></i> Candidate List</b><span class="sr-only">(current)</span></a></li>
           <li *ngIf="!authService.isAdmin()  && authService.isLoggedIn()"><a href="vote-page"> <i class="fas fa-list"></i> Vote Now</a></li>
           <li *ngIf="authService.isAdmin()"><a href="voter-list"> <i class="fas fa-list"></i> Voters List</a></li>
           <li *ngIf="authService.isAdmin()"><a href="canvassing-report"><i class="far fa-chart-bar"></i>  Canvassing Report</a></li>
-          <!--<li *ngIf="authService.isLoggedIn()"><a href="result"><i class="far fa-chart-bar"></i>  Result </a></li>-->
+          <li class="active" *ngIf="authService.isLoggedIn()"><a href="result"><i class="far fa-chart-bar"></i>  Result </a></li>
           <!--<li *ngIf="authService.isAdmin()"><a href="#"> <i class="fas fa-history"></i>  History Log</a></li>-->
           <li><a href="about"><i class="fab fa-adn"></i> About</a></li>
         </ul>
@@ -35,70 +35,40 @@
   </nav>
 
 
-  <div *ngIf="voter.status">
-    <h3>
-      Thank you
-      {{voter.firstName}} {{voter.middleName}} {{voter.lastName}}
-      for submitting vote!
-    </h3>
-  </div>
 
-  <!--slide show starts-->
-  <div class="slideShow">
-    <div id="container2">
-      <div
-        ng2-carouselamos
-        class="slides-wrapper"
-        [items]="items"
-        [width]="620"
-        [$prev]="prev"
-        [$next]="next"
-        [$item]="item"
-      > </div>
+  <div style="margin-left: -1px" id="loginbox" style="margin-top:10px;" class="mainbox col-md-12 col-sm-12">
+    <div class="panel panel-info" >
+      <div class="panel-heading">
+        <div class="panel-title">
+          <div class="btn-group" role="group" aria-label="...">
+            <!--<button (click)="ngOnInit()" type="button" class="btn btn-default">All</button>-->
+            <button (click)="president()" type="button" class="btn btn-default">President</button>
+            <button (click)="vice_president()" type="button" class="btn btn-default">Vice President</button>
+            <button (click)="members()" type="button" class="btn btn-default"><span style="padding: 9px">Members</span></button>
+            <button (click)="general_secretary()" type="button" class="btn btn-default">General Secretary</button>
+            <button (click)="joint_secretary()" type="button" class="btn btn-default">Joint Secretary</button>
+            <button (click)="treasurer()" type="button" class="btn btn-default">Treasurer</button>
+          </div>
 
-
-      <ng-template #prev>
-        <img width="40px" height="40px" src="assets/images/left-arrow.png" id="left" />
-      </ng-template>
-      <ng-template #next>
-        <img width="40px" height="40px" src="assets/images/right-arrow.png" id="right" />
-      </ng-template>
-
-      <ng-template #item let-item let-i="index">
-        <div class="items2">
-          <img class="image_show" src="{{ item.name }}">
         </div>
-      </ng-template>
-
-      <div class="photoGallery">
-        Photo Gallery
       </div>
-    </div>
-  </div>
-    <!--slide show ends-->
 
+      <div class="panel-body" >
 
-  <div class="mission mission1">
-    <div class="home-title">
-      Our Mission
-    </div>
-    <div class="home_description">
-      Our mission is to digitize the voting process of <b>Teachers Association</b>
-      of <b>University of Rajshahi</b>. To cope with the development of the country,
-      teachers association electing is arranged online to simplify, easy and fast
-      the voting process.
-    </div>
-  </div>
+        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-  <div class="mission mission2 ">
-    <div class="home-title">
-      Objectives
-    </div>
-    <div class="home_description">
-      <li>Reviewing the existing voting approach.</li>
-      <li>Coming up with an automated  voting system </li>
-      <li>Implementing  an automated/ E-voting system </li>
-      <li>Validating the system to ensure that only eligible voters are allowed to vote</li>
+        <div class="result" *ngFor="let candidate of result_candidates; let i = index">
+          <p><img class="imageResult" src="http://localhost:8080/{{candidate.picture}}" alt="no photo"></p>
+          <p><b>Elected Candidate Name : </b>
+            <b>{{candidate.firstName}} {{candidate.middleName}} {{candidate.lastName}}</b>
+          </p>
+          <p><b>Department : </b>{{candidate.dept}}</p>
+          <p><b>Position : </b>{{candidate.position}}</p>
+          <p><b>Party : </b>{{candidate.party}}</p>
+          <p><b>No. of Votes : </b>{{candidate.total_vote}}</p>
+        </div>
+
+      </div>
     </div>
   </div>
 

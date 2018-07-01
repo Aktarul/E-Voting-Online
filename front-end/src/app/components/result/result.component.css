@@ -1,0 +1,10 @@
+.result {
+  font-size: 120%;
+}
+
+.imageResult {
+  float: right;
+  float: top;
+  height: 200px;
+  width: 200px;
+}
