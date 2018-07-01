@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import { AuthService } from "../../services/auth.service";
 import {CandidateService} from "../../services/candidate.service";
+import {AdminComponent} from "../admin/admin.component";
+import {AdminService} from "../../services/admin.service";
 
 @Component({
   selector: 'app-login',
@@ -25,7 +27,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private candidateService: CandidateService
+    private candidateService: CandidateService,
+    private adminService: AdminService
   ) { }
 
   ngOnInit() {
@@ -82,6 +85,15 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/login']);
       }
 
+      this.adminService.getSingleAdmin()
+        .subscribe(res => {
+          console.log(res.data);
+          if(res.data.isPublished == true){
+            localStorage.setItem('published','true');
+          } else {
+            localStorage.setItem('published','false');
+          }
+        });
 
     });
 

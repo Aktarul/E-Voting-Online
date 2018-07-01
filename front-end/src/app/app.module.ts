@@ -40,6 +40,7 @@ import { Ng2CarouselamosModule} from "ng2-carouselamos";
 import { AboutComponent } from './components/about/about.component';
 import {VotePublishService} from "./services/vote-publish.service";
 import { ResultComponent } from './components/result/result.component';
+import {AdminService} from "./services/admin.service";
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { ResultComponent } from './components/result/result.component';
     PasswordValidationService,
     CandidateService,
     AuthService,
-    VotePublishService
+    VotePublishService,
+    AdminService
   ],
   bootstrap: [AppComponent]
 })
