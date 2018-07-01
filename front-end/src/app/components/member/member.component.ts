@@ -32,6 +32,10 @@ export class MemberComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+    this.published = true;
+  }
+
     localStorage.setItem('is_member_visited','true');
 
     let vote_temp2 = localStorage.getItem('member_vote');

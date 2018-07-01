@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  published: any = false;
 
   constructor(
     public authService: AuthService,
@@ -15,6 +16,9 @@ export class AboutComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+      this.published = true;
+    }
   }
 
   logOut() {

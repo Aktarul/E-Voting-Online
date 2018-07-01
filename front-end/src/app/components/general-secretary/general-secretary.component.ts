@@ -21,6 +21,9 @@ export class GeneralSecretaryComponent implements OnInit {
 
   id: any = null;
 
+
+  published = false;
+
   constructor(
     public authService: AuthService,
     private candidateService: CandidateService,
@@ -29,6 +32,9 @@ export class GeneralSecretaryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+      this.published = true;
+    }
     if(localStorage.getItem('is_member_visited') == "true"){
       localStorage.setItem('member_vote','true');
     }

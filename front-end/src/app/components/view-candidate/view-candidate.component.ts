@@ -9,6 +9,7 @@ import { ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./view-candidate.component.css']
 })
 export class ViewCandidateComponent implements OnInit {
+  published: any = false;
 
   constructor(
     private candidateService: CandidateService,
@@ -20,6 +21,9 @@ export class ViewCandidateComponent implements OnInit {
   candidate = new Candidate();
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+    this.published = true;
+  }
 
     this.candidateService.getSingleCandidate(this.route.snapshot.params.id)
       .subscribe( res=>{

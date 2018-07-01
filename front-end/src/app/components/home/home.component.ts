@@ -12,6 +12,7 @@ import {Voter} from "../../models/voter";
 export class HomeComponent implements OnInit {
   items: Array<any> = [];
   id: any;
+  published: any = false;
 
   voter = new Voter();
 
@@ -31,6 +32,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+      this.published = true;
+    }
+
     if(localStorage.getItem('is_member_visited') == "true"){
       localStorage.setItem('member_vote','true');
     }

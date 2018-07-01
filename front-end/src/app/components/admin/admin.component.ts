@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
 
   email: String;
   password: String;
+  published = false;
 
 
   // username = new FormControl('', [Validators.required]);
@@ -54,6 +55,12 @@ export class AdminComponent implements OnInit {
         localStorage.setItem('isAdmin',res.data.isAdmin);
         localStorage.setItem('loginId',res.data._id);
         localStorage.setItem('status',res.data.status);
+        console.log(res.data);
+
+        // if(res.data.isPublished){
+        //   localStorage.setItem('published', 'true');
+        // }
+
 
         this.authService.storeUserDatta(res.token, res.data);
         // this._flashMessagesService.show('You are now Logged In!', { cssClass: 'alert-success' } );

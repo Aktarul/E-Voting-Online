@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class InnerNavbarComponent implements OnInit {
 
   public isAdmin = 0;
+  published = false;
 
   constructor(
     public authService: AuthService,
@@ -18,6 +19,9 @@ export class InnerNavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+      this.published = true;
+    }
     if(localStorage.getItem('isAdmin') == 'true'){
       this.isAdmin = 1;
       console.log(this.isAdmin);

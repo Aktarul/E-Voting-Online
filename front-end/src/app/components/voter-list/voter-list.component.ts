@@ -20,11 +20,15 @@ export class VoterListComponent implements OnInit {
     public authService: AuthService
   ) { }
 
+  published : any = false;
   voters: Array<Voter> = new Array<Voter>();
   newVoters: Array<Voter> = new Array<Voter>();
   backupVoters: Array<Voter> = new Array<Voter>();
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+    this.published = true;
+  }
     if(localStorage.getItem('is_member_visited') == "true"){
       localStorage.setItem('member_vote','true');
     }

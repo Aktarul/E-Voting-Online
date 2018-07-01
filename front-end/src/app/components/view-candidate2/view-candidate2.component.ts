@@ -9,6 +9,7 @@ import {CandidateService} from "../../services/candidate.service";
   styleUrls: ['./view-candidate2.component.css']
 })
 export class ViewCandidate2Component implements OnInit {
+  published:any = false;
 
   constructor(
     private candidateService: CandidateService,
@@ -20,6 +21,9 @@ export class ViewCandidate2Component implements OnInit {
   candidate = new Candidate();
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+    this.published = true;
+  }
 
     this.candidateService.getSingleCandidate(this.route.snapshot.params.id)
       .subscribe( res=>{

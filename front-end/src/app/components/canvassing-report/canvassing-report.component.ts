@@ -18,6 +18,7 @@ export class CanvassingReportComponent implements OnInit {
   tempCan = new Candidate();
 
   searchKey: any;
+  published = false;
 
   constructor(
     public authService: AuthService,
@@ -26,6 +27,9 @@ export class CanvassingReportComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+      this.published = true;
+    }
     if(localStorage.getItem('is_member_visited') == "true"){
       localStorage.setItem('member_vote','true');
     }

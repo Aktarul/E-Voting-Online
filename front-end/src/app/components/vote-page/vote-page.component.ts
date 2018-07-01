@@ -23,6 +23,7 @@ export class VotePageComponent implements OnInit {
   voter = new Voter();
 
   id: any = null;
+  published:any = false;
 
   constructor(
     public authService: AuthService,
@@ -32,6 +33,9 @@ export class VotePageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+      this.published = true;
+    }
     if(localStorage.getItem('is_member_visited') == "true"){
       localStorage.setItem('member_vote','true');
     }

@@ -14,6 +14,7 @@ export class CandidateListComponent implements OnInit {
   category: String;
   searchKey: any;
   newCandidates: any =[];
+  published = false;
 
   constructor(
     private candidateService: CandidateService,
@@ -26,6 +27,9 @@ export class CandidateListComponent implements OnInit {
   temp_candidates: Array<Candidate> = new Array<Candidate>();
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+    this.published = true;
+  }
     if(localStorage.getItem('is_member_visited') == "true"){
       localStorage.setItem('member_vote','true');
     }

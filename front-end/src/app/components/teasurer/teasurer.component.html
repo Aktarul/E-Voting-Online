@@ -23,6 +23,7 @@
           <li class="active" *ngIf="!authService.isAdmin() && authService.isLoggedIn()"><a href="vote-page"> <i class="fas fa-list"></i> Vote Now</a></li>
           <li *ngIf="authService.isAdmin()"><a href="voter-list"> <i class="fas fa-list"></i> Voters List</a></li>
           <li *ngIf="authService.isAdmin()"><a href="canvassing-report"><i class="far fa-chart-bar"></i>  Canvassing Report</a></li>
+          <li *ngIf="authService.isLoggedIn() && published || authService.isAdmin()"><a href="result"><i class="far fa-chart-bar"></i>  Result </a></li>
           <!--<li *ngIf="authService.isAdmin()"><a href="#"> <i class="fas fa-history"></i>  History Log</a></li>-->
           <li><a href="about"><i class="fab fa-adn"></i> About</a></li>
         </ul>

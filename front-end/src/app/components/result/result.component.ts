@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {CandidateService} from "../../services/candidate.service";
 import {Candidate} from "../../models/candidate";
+import {AdminService} from "../../services/admin.service";
 
 @Component({
   selector: 'app-result',
@@ -11,7 +12,8 @@ import {Candidate} from "../../models/candidate";
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-
+  published: any = false;
+  not_published: any = true;
   candidates: Array<Candidate> = new Array<Candidate>();
   newCandidates: Array<Candidate> = new Array<Candidate>();
   temp_candidates: Array<Candidate> = new Array<Candidate>();
@@ -26,15 +28,31 @@ export class ResultComponent implements OnInit {
     private router: Router,
     public authService: AuthService,
     protected voterService: VoterService,
-    private candidateService: CandidateService
+    private candidateService: CandidateService,
+    private adminService: AdminService
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('published') == "true"){
+      this.published = true;
+    }
+
     if(localStorage.getItem('is_member_visited') == "true"){
     localStorage.setItem('member_vote','true');
   }
 
   this.president();
+
+    this.adminService.getSingleAdmin()
+      .subscribe(res => {
+        console.log('admin: ');
+        console.log(res.data.isPublished);
+
+        if(res.data.isPublished) {
+          this.not_published = false;
+        }
+
+      });
 
     // this.candidateService.getCandidate()
     //   .subscribe(res =>{
@@ -211,6 +229,15 @@ export class ResultComponent implements OnInit {
         this.newCandidates = res.data;
         this.sort();
         this.all_candidates[5] = this.candidates[0];
+      });
+  }
+
+  publish() {
+    this.adminService.isPublished()
+      .subscribe(res =>{
+        console.log(res.data);
+          // localStorage.setItem('published','false');
+        this.ngOnInit();
       });
   }
 }
