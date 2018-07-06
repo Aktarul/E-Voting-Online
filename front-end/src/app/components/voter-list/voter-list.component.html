@@ -102,7 +102,7 @@
               <td>{{voter.firstName}}</td>
               <td>{{voter.lastName}}</td>
               <td>{{voter.dept}}</td>
-              <td ><img src="http://localhost:8080/{{voter.picture}}" height="50px" width="50px" alt="no photo"></td>
+              <td ><img src="{{voter.picture}}" height="50px" width="50px" alt="no photo"></td>
               <td *ngIf="!voter.status">Unvoted</td>
               <td *ngIf="voter.status">Voted</td>
               <td><button (click)="deleteVoter(voter)" class="btn btn-danger"><i class="far fa-trash-alt"></i> delete</button></td>

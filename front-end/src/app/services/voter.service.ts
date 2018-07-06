@@ -48,7 +48,7 @@ export class VoterService {
 
     console.log('voter id: ');
     let id =  localStorage.getItem('loginId');
-    return this.http.patch(`http://localhost:8080/api/voter/${id}`, voter, this.options)
+    return this.http.patch(`api/voter/${id}`, voter, this.options)
       .map( res=> res.json());
   }
 

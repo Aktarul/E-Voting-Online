@@ -23,7 +23,7 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-type','application/json');
 
-    return this.http.post('http://localhost:8080/auth/loginregister',user,{headers: headers})
+    return this.http.post('auth/loginregister',user,{headers: headers})
       .map( res => res.json());
   }
 
@@ -31,7 +31,7 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-type','application/json');
 
-    return this.http.post('http://localhost:8080/auth/adminlogin',user,{headers: headers})
+    return this.http.post('auth/adminlogin',user,{headers: headers})
       .map( res => res.json());
   }
 

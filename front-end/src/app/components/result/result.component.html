@@ -59,7 +59,7 @@
         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
         <div class="result" *ngFor="let candidate of result_candidates; let i = index">
-          <p><img class="imageResult" src="http://localhost:8080/{{candidate.picture}}" alt="no photo"></p>
+          <p><img class="imageResult" src="{{candidate.picture}}" alt="no photo"></p>
           <p><b>Elected Candidate Name : </b>
             <b>{{candidate.firstName}} {{candidate.middleName}} {{candidate.lastName}}</b>
           </p>

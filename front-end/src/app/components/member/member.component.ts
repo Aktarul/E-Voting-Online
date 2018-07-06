@@ -16,6 +16,7 @@ export class MemberComponent implements OnInit {
   vote_status = false;
   rem_vote: number;
   message = " ";
+  published: any = false;
 
   searchKey: String;
   candidates: Array<Candidate> = new Array<Candidate>();

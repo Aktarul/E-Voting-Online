@@ -19,13 +19,13 @@ export class AdminService {
 
   getSingleAdmin(){
     let id  = '5b2db5832c038408600e61ee';
-    return this.http.get(`http://localhost:8080/api/admin/${id}`, this.options)
+    return this.http.get(`api/admin/${id}`, this.options)
       .map(res=>res.json());
   }
 
   isPublished() {
     let id  = '5b2db5832c038408600e61ee';
-      return this.http.post(`http://localhost:8080/api/admin/publish/${id}`,this.options)
+      return this.http.post(`api/admin/publish/${id}`,this.options)
         .map( res=>res.json());
   }
 

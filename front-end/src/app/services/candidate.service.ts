@@ -53,7 +53,7 @@ export class CandidateService {
     let headers = new Headers();
     headers.append('Content-type','application/json');
 
-    return this.http.get(`http://localhost:8080/api/candidate/search/${id}`,{headers: headers})
+    return this.http.get(`api/candidate/search/${id}`,{headers: headers})
       .map(res => res.json())
   }
 
