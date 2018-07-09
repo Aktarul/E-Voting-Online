@@ -41,10 +41,10 @@ app.use('/api/admin', admin);
 app.use('/api/voter', voter);
 app.use('/api/candidate',candidate);
 
-
 app.use('*', (req, res, next) => {
-    res.status(200).json({ success: false, message: 'Does not match any resource of the routing.' });
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
+
 
 app.listen(port, (err)=>{
     console.log("Server running on port: "+port);
