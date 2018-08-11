@@ -14,3 +14,12 @@ It is an automatic voting system for RU teachers association election. Here asso
   4. Admin and User Authentication: **JSON Web Token**
   5. Password Encryption: **Bcrypt.js**
   6. File Upload: **Multer**
+  
+## Installation
+  1. Clone this repositry : `https://github.com/Aktarul/E-Voting-Online.git`
+  2. Open a terminal in this directory
+  3. Install dependencies : `npm install --save`
+  4. Run server : `node server.js`
+  5. Visit: `localhost:8080`
+ 
+  That's it! Explore the application.
