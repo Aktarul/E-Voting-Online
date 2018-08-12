@@ -23,3 +23,12 @@ It is an automatic voting system for RU teachers association election. Here asso
   5. Visit: `localhost:8080`
  
   That's it! Explore the application.
+  
+**To run client-side(angular project) manually open another terminal in the directory**
+
+  1. Navigate to client directory : `cd front-end`
+  2. Install dependencies : `npm install --save`
+  3. Change every route of angular project to `http://localhost:`_8080-or-your-database-port-no_`/`_route_
+  4. Run client : `ng serve`
+  5. Visit: `localhost:4200`
+
