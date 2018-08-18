@@ -32,3 +32,8 @@ It is an automatic voting system for RU teachers association election. Here asso
   4. Run client : `ng serve`
   5. Visit: `localhost:4200`
 
+
+## UI-Design with Angular
+
+#### _Homepage_
+![Screenshot-1](screenshots/home.png)
