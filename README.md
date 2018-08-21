@@ -1,5 +1,5 @@
 # E-Voting
-It is an automatic voting system for RU teachers association election. Here association's teachers can take part in election from home and with their mobile/computer. It will save time and also save hard work for vote counting, ballot paper printing etc. This platform is built for 'Rajshahi University Teachers Association' and with some updates it can be used for election of any organization or association.
+It is an automatic voting system for RU teachers association election. Here association's teachers can take part in election from home and with their mobile/computer. It will save time and also save hard work for vote counting, ballot paper printing etc. This platform is built for 'Rajshahi University Teachers Association' and with some updates it can be used for election of any organization or association. Visit the web application [Live](https://boiling-gorge-93321.herokuapp.com).
 
 ## Technologies
   1. Frontend: **Angular**
