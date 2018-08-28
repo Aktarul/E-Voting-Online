@@ -49,3 +49,6 @@ It is an automatic voting system for RU teachers association election. Here asso
 
 #### _Result_
 ![Screenshot-5](screenshots/result.png)
+
+#### _About_
+![Screenshot-6](screenshots/about.png)
