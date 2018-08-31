@@ -52,3 +52,7 @@ It is an automatic voting system for RU teachers association election. Here asso
 
 #### _About_
 ![Screenshot-6](screenshots/about.png)
+
+
+## Licence
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
